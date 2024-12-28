@@ -38,6 +38,7 @@ jobs:
   foo:
     needs: build
     runs-on: ubuntu-latest
+    environment: qa
     steps:
       - name: Run a greeting
         run: echo "Hello, GitHub Actions! Foo"
