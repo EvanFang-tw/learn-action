@@ -35,6 +35,7 @@ jobs:
           echo "Repository files:"
           ls -la
   foo:
+    needs: build
     runs-on: ubuntu-latest
     steps:
       - name: Run a greeting
