@@ -1,0 +1,36 @@
+# 工作流程的名稱
+name: CI Demo
+
+# 觸發工作流程的事件
+on:
+  # 當程式碼被推送到 main 分支時觸發
+  push:
+    branches: ["main"]
+  # 當有 Pull Request 到 main 分支時觸發
+  pull_request:
+    branches: ["main"]
+
+# 工作流程中的工作
+jobs:
+  # 定義一個名為 build 的工作
+  build:
+    # 指定運行環境為最新版本的 Ubuntu
+    runs-on: ubuntu-latest
+
+    # 工作中的步驟
+    steps:
+      # 使用 actions/checkout 動作來取得程式碼
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # 顯示一個歡迎訊息
+      - name: Run a greeting
+        run: echo "Hello, GitHub Actions!"
+
+      # 執行多行指令示範
+      - name: Run multiple commands
+        run: |
+          echo "Current directory:"
+          pwd
+          echo "Repository files:"
+          ls -laＦ
