@@ -19,21 +19,21 @@ jobs:
 
     # 工作中的步驟
     steps:
-      # # 使用 actions/checkout 動作來取得程式碼
-      # - name: Checkout repository
-      #   uses: actions/checkout@v4
+      # 使用 actions/checkout 動作來取得程式碼
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
       # 顯示一個歡迎訊息
       - name: Run a greeting
         run: echo "Hello, GitHub Actions!"
 
-      # # 執行多行指令示範
-      # - name: Run multiple commands
-      #   run: |
-      #     echo "Current directory:"
-      #     pwd
-      #     echo "Repository files:"
-      #     ls -la
+      # 執行多行指令示範
+      - name: Run multiple commands
+        run: |
+          echo "Current directory:"
+          pwd
+          echo "Repository files:"
+          ls -la
   foo:
     runs-on: ubuntu-latest
     steps:
