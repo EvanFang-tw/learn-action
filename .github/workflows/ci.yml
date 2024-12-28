@@ -9,6 +9,7 @@ on:
   # 當有 Pull Request 到 main 分支時觸發
   pull_request:
     branches: ["main"]
+  workflow_dispatch:
 
 # 工作流程中的工作
 jobs:
