@@ -40,3 +40,5 @@ jobs:
       - name: 顯示部署結果
         run: |
           echo "URL=${{ steps.deployment.outputs.url }}" >> $GITHUB_OUTPUT
+    outputs:
+      webapp-url: "1"
