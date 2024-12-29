@@ -26,7 +26,7 @@ jobs:
 
       # 顯示一個歡迎訊息
       - name: Run a greeting
-        run: echo "Hello, GitHub Actions!"
+        run: echo "Hello, GitHub Actions!" >> $GITHUB_OUTPUT
 
       # 執行多行指令示範
       - name: Run multiple commands

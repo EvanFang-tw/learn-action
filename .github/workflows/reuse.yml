@@ -11,5 +11,5 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: 設置 Node.js
+      - name: Place message into echo
         run: echo "You say {{ $inputs.msg }}, right?"
