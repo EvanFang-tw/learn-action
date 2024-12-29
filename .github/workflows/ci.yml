@@ -39,4 +39,4 @@ jobs:
 
       - name: 顯示部署結果
         run: |
-          echo "應用程式已部署到 ${{ steps.deployment.outputs.url }}" >> $GITHUB_STEP_SUMMARY
+          echo "應用程式已部署到 ${{ steps.deployment.outputs.url }}" >> $GITHUB_STATE
