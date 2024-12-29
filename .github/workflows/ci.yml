@@ -51,12 +51,10 @@ jobs:
       - name: Create a file
         run: echo "Hello, GitHub Actions! github.sha is ${{ github.sha }}" > greetings.txt
 
-      # 將覆蓋率報告上傳為 artifact
-      - name: Upload coverage report
-        uses: actions/upload-artifact@v4
+      - name: Say something
+        uses: ./.github/workflows/reuse.yml
         with:
-          name: coverage-report-${{ github.sha }}
-          path: greetings.txt
+          msg: "Hello, GitHub Actions! I'm reused!"
 
   foo:
     needs: build

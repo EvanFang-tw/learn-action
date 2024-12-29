@@ -1,0 +1,15 @@
+name: Reusable Build Workflow
+on:
+  workflow_call:
+    inputs:
+      msg:
+        required: true
+        type: string
+        description: "Just a message"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 設置 Node.js
+        run: echo "You say {{ $inputs.msg }}, right?"
