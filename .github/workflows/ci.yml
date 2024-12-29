@@ -17,11 +17,10 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: production
-      url: https://example.com
+      url: https://example.com/${{ steps.coverage.outputs.report }}
     steps:
       - name: 分析代碼覆蓋率
         id: coverage
         run: |
           # 假設這是我們的分析結果
-          echo "total_coverage=85.5" >> $GITHUB_OUTPUT
-          echo "files_tested=127" >> $GITHUB_OUTPUT
+          echo "report=hello.html" >> $GITHUB_OUTPUT
