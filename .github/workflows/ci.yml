@@ -27,3 +27,16 @@ jobs:
         run: |
           echo "總覆蓋率: ${{ steps.coverage.outputs.total_coverage }}%"
           echo "測試檔案數: ${{ steps.coverage.outputs.files_tested }}"
+
+      - name: 部署到測試環境
+        id: deployment
+        run: |
+          # 這裡執行你的部署命令
+          # 假設我們部署到 Vercel、Netlify 或其他平台
+
+          # 設定部署 URL
+          echo "url=https://my-app-staging.example.com" >> $GITHUB_OUTPUT
+
+      - name: 顯示部署結果
+        run: |
+          echo "應用程式已部署到 ${{ steps.deployment.outputs.url }}"Ｆ
