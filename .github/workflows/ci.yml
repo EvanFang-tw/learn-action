@@ -13,53 +13,17 @@ on:
 
 # 工作流程中的工作
 jobs:
-  # 定義一個名為 build 的工作
-  build:
-    # 指定運行環境為最新版本的 Ubuntu
+  analyze:
     runs-on: ubuntu-latest
-
-    # 工作中的步驟
     steps:
-      # 使用 actions/checkout 動作來取得程式碼
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      # 顯示一個歡迎訊息
-      - name: Run a greeting
-        run: echo "Hello, GitHub Actions!" >> $GITHUB_OUTPUT
-
-      # 執行多行指令示範
-      - name: Run multiple commands
+      - name: 分析代碼覆蓋率
+        id: coverage
         run: |
-          echo "Current directory:"
-          pwd
-          echo "Repository files:"
-          ls -la
+          # 假設這是我們的分析結果
+          echo "total_coverage=85.5" >> $GITHUB_OUTPUT
+          echo "files_tested=127" >> $GITHUB_OUTPUT
 
-      - name: 打印問候語 1
-        env:
-          GREETING: "你好"
-          USER_NAME: "小明"
-        run: echo "$GREETING $USER_NAME"
-
-      - name: 打印問候語 2
-        env:
-          GREETING: "你好 2"
-          USER_NAME: "小明 2"
-        run: echo "${{ env.GREETING }} ${{ env.USER_NAME }}"
-
-      - name: Create a file
-        run: echo "Hello, GitHub Actions! github.sha is ${{ github.sha }}" > greetings.txt
-
-  say-something:
-    uses: ./.github/workflows/reuse.yml
-    with:
-      msg: "Hello, GitHub Actions! I'm reused!"
-
-  # foo:
-  #   needs: build
-  #   runs-on: ubuntu-latest
-  #   environment: qa
-  #   steps:
-  #     - name: Run a greeting
-  #       run: echo "Hello, GitHub Actions! Foo"
+      - name: 顯示分析結果
+        run: |
+          echo "總覆蓋率: ${{ steps.coverage.outputs.total_coverage }}%"
+          echo "測試檔案數: ${{ steps.coverage.outputs.files_tested }}"
