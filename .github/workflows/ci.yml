@@ -51,15 +51,15 @@ jobs:
       - name: Create a file
         run: echo "Hello, GitHub Actions! github.sha is ${{ github.sha }}" > greetings.txt
 
-      - name: Say something
-        uses: ./.github/workflows/reuse.yml
-        with:
-          msg: "Hello, GitHub Actions! I'm reused!"
+  say-something:
+    uses: ./.github/workflows/reuse.yml
+    with:
+      msg: "Hello, GitHub Actions! I'm reused!"
 
-  foo:
-    needs: build
-    runs-on: ubuntu-latest
-    environment: qa
-    steps:
-      - name: Run a greeting
-        run: echo "Hello, GitHub Actions! Foo"
+  # foo:
+  #   needs: build
+  #   runs-on: ubuntu-latest
+  #   environment: qa
+  #   steps:
+  #     - name: Run a greeting
+  #       run: echo "Hello, GitHub Actions! Foo"
