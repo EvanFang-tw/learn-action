@@ -35,6 +35,18 @@ jobs:
           pwd
           echo "Repository files:"
           ls -la
+
+      - name: 打印問候語 1
+        env:
+          GREETING: "你好"
+          USER_NAME: "小明"
+        run: echo "$GREETING $USER_NAME"
+
+      - name: 打印問候語 2
+        env:
+          GREETING: "你好 2"
+          USER_NAME: "小明 2"
+        run: echo "${{ env.GREETING }} ${{ env.USER_NAME }}"
   foo:
     needs: build
     runs-on: ubuntu-latest
